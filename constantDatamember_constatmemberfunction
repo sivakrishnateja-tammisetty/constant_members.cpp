@@ -1,0 +1,88 @@
+*constant memebrs are 2 types:
+    1.constant data members
+    2.constant member functions
+
+
+1. Constant data members:
+  .Constant data members values cannot be changed.
+  .It is used to define constant state.
+  syntax: const datatype variable_name;
+  .constant data members are initialized using constructor and constructor list.
+  .The values of constant data members cannot be changed by member functions.
+
+
+
+  Eg:
+  #include<iostream>
+#include<iomanip>
+using namespace std;
+class circle
+{
+    float r;
+    const float pi;
+    public:
+    circle():pi{3.14}{}
+    void set(float r)
+    {
+    this->r=r;
+    }
+    void area()
+    {
+        cout<<"Area: "<<(pi*r*r)<<endl;
+        }
+};
+int main()
+{
+    circle obj;
+    obj.set(2);
+    obj.area();
+
+    return 0;
+
+}
+
+
+
+
+
+
+2. constant member functions:
+  .constant member functions can provide only read operations.
+  .This function cannot change state of an object.
+  .this function cannot modify the values of data members.
+  .constant member function can be called accessor member function.
+
+  syntax: returntype function_name(parameterlist)const{statements};
+
+
+
+Eg:
+#include<iostream>
+#include<iomanip>
+using namespace std;
+class student
+{
+    int rollno,m1,m2;
+    public:
+    void read()
+    {
+    cout<<"enter rollno:";
+    cin>>rollno;
+    cout<<"enter marks of m1 and m2:";
+    cin>>m1>>m2;
+    }
+    void display()const
+    {
+        cout<<"RollNo: "<<rollno<<endl;
+        cout<<"Marks :"<<m1<<" "<<m2<<endl;
+    }
+};
+int main()
+{
+   student obj;
+   obj.read();
+   obj.display();
+
+    return 0;
+
+}
